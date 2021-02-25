@@ -1,15 +1,19 @@
 import { createApp } from 'vue'
+import 'normalize.css/normalize.css' // a modern alternative to CSS resets
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import ElementPlus from 'element-plus'
+import ElementPlus, { ElMessage } from 'element-plus'
 import 'xe-utils'
 import VXETable from 'vxe-table'
-import './styles/reset.scss'
-import 'element-plus/lib/theme-chalk/index.css'
+import './styles/element-variables.scss'
 import 'vxe-table/lib/style.css'
-import 'element-plus/lib/theme-chalk/index.css'
+import './styles/index.scss'
+import './permission' // permission control
 
 
+const app = createApp(App)
 
-createApp(App).use(store).use(router).use(ElementPlus).use(VXETable).mount('#app')
+app.config.globalProperties.$message = ElMessage
+
+app.use(store).use(router).use(ElementPlus).use(VXETable).mount('#app')
