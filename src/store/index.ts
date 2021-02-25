@@ -11,7 +11,9 @@ export type State = {
   tagsView: TagsViewState;
 }
 
-export type Store = AppStore<Pick<State, 'app'>> & PermissionStore<Pick<State, 'permission'>> & TagsViewStore<Pick<State, 'tagsView'>>;
+export type Store = AppStore<Pick<State, 'app'>> &
+ PermissionStore<Pick<State, 'permission'>> &
+ TagsViewStore<Pick<State, 'tagsView'>>;
 
 export const store = createStore({
   modules: {
