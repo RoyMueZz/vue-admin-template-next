@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d20ec00"],{b161:function(n,e,c){"use strict";c.r(e);var o=c("7a23");function r(n,e,c,r,t,a){return Object(o["openBlock"])(),Object(o["createBlock"])("div",null," 数据字典 ")}var t={name:"Dictionary"};t.render=r;e["default"]=t}}]);
-//# sourceMappingURL=chunk-2d20ec00.777d3092.js.map
