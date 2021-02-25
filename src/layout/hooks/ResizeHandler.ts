@@ -27,7 +27,6 @@ export default function ResizeHandler() {
     if (!document.hidden) {
       const isMobile = _isMobile()
       store.dispatch(ActionConstants.HandleToggleDevicet, isMobile ? 'mobile' : 'desktop')
-
       if (isMobile) {
         store.dispatch(ActionConstants.HandleCloseSidebar, { withoutAnimation: true })
       }

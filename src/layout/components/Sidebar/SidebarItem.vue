@@ -36,7 +36,7 @@
 <script lang='ts'>
 import { defineComponent, PropType, ref } from 'vue'
 import AppLink from './Link.vue'
-
+import FixiOSBug from './FixiOSBug'
 import { isExternal } from '@/utils/validate'
 import path from 'path'
 import { RouteRecordRaw } from 'vue-router'
@@ -60,6 +60,7 @@ export default defineComponent({
   },
   setup(props) {
     const onlyOneChild = ref(null)
+    const subMenu = ref(null)
     const hasOneShowingChild = (children: RouteRecordRaw[] = [], parent: RouteRecordRaw) => {
       const showingChildren = children.filter((item: RouteRecordRaw) => {
         if (item.meta && item.meta.hidden) {
@@ -94,10 +95,13 @@ export default defineComponent({
       return path.resolve(props.basePath, routePath)
     }
 
+    FixiOSBug(subMenu)
+
     return {
       onlyOneChild,
       hasOneShowingChild,
-      resolvePath
+      resolvePath,
+      subMenu
     }
   }
 })

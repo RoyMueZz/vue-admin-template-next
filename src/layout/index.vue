@@ -30,14 +30,14 @@ export default defineComponent({
   },
   setup() {
     const store = useStore()
-    const sidebar = store.getters[GetterConstants.GetSidebar]
-    const device = store.getters[GetterConstants.GetDevice]
+    const sidebar = computed(() => store.getters[GetterConstants.GetSidebar])
+    const device = computed(() => store.getters[GetterConstants.GetDevice])
     const classObj = computed(() => {
       return {
-        hideSidebar: !sidebar.opened,
-        openSidebar: sidebar.opened,
-        withoutAnimation: sidebar.withoutAnimation,
-        mobile: device === 'mobile'
+        hideSidebar: !sidebar.value.opened,
+        openSidebar: sidebar.value.opened,
+        withoutAnimation: sidebar.value.withoutAnimation,
+        mobile: device.value === 'mobile'
       }
     })
 
