@@ -4,7 +4,7 @@
 
     <div class="right-menu">
       <template v-if="device!=='mobile'">
-        <!-- <search id="header-search" class="right-menu-item" /> -->
+        <HeaderSearch id="header-search" class="right-menu-item" />
         <Screenfull id="screenfull" class="right-menu-item hover-effect" />
       </template>
 
@@ -35,10 +35,11 @@ import { useStore } from '@/store'
 import { ActionConstants, GetterConstants } from '@/store/modules/constants'
 import Hamburger from '@/components/Hamburger/index.vue'
 import Screenfull from '@/components/Screenfull/index.vue'
+import HeaderSearch from '@/components/HeaderSearch/index.vue'
 
 export default defineComponent({
   name: 'Navbar',
-  components: { Hamburger, Screenfull },
+  components: { Hamburger, Screenfull, HeaderSearch },
   setup() {
     const store = useStore()
     const sidebar = computed(() => store.getters[GetterConstants.GetSidebar])
