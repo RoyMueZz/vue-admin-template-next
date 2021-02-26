@@ -11,9 +11,9 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2020
   }, 
-  rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+  rules: { 
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-console': 'off',
     'vue/max-attributes-per-line': [2, {
       'singleline': 8,
       'multiline': {

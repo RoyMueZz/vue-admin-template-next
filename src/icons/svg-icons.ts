@@ -15,6 +15,5 @@ requireAll(req).forEach(i => {
   svgIcons[camelCase(i.match(re)[1])] = i.match(re)[1]
 })
 
-console.log('svgIcons', svgIcons)
 
 export default svgIcons
