@@ -3,7 +3,7 @@ export enum GetterConstants {
   GetSidebar = 'APP/GET_SIDEBAR',
   GetPermissionRoutes = 'PERMISSION/GET_PERMISSION_ROUTES',
   GetVisitedViews = 'TAGSVIEW/GET_VISITED_VIEWS',
-  GetCachedViews = 'TAGSVIEW/GET_CACHED_VIEWS',
+  GetCachedViews = 'TAGSVIEW/GET_CACHED_VIEWS'
 }
 
 export enum MutationConstants {

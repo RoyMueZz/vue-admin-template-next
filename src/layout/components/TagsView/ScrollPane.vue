@@ -76,7 +76,9 @@ export default defineComponent({
     })
 
     onUnmounted(() => {
-      scrollContainer.value.wrap.removeEventListener('scroll', emitScroll)
+      if (scrollContainer.value) {
+        scrollContainer.value.wrap.removeEventListener('scroll', emitScroll)
+      }
     })
 
     return {

@@ -4,15 +4,21 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import ElementPlus, { ElMessage } from 'element-plus'
+import SvgIcon from '@/components/SvgIcon/index.vue'// svg component
 import 'xe-utils'
 import VXETable from 'vxe-table'
 import './styles/element-variables.scss'
 import 'vxe-table/lib/style.css'
 import './styles/index.scss'
 import './permission' // permission control
+import './icons' // icon
 
 
 const app = createApp(App)
+
+// register globally
+app.component('svg-icon', SvgIcon)
+
 
 app.config.globalProperties.$message = ElMessage
 

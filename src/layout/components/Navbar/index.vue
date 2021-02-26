@@ -1,20 +1,26 @@
 <template>
   <div class="navbar">
-    <hamburger id="hamburger-container" :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
+    <Hamburger id="hamburger-container" :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
 
     <div class="right-menu">
-      <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
+      <template v-if="device!=='mobile'">
+        <!-- <search id="header-search" class="right-menu-item" /> -->
+        <Screenfull id="screenfull" class="right-menu-item hover-effect" />
+      </template>
+
+      <el-dropdown class="avatar-container right-menu-item hover-effect" size="medium" trigger="click">
         <div class="avatar-wrapper">
-          <!-- <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar"> -->
+          <img src="@/assets/navbar/avatar.jpg" class="user-avatar">
+          <div class="user-name">超级管理员</div>
           <i class="el-icon-caret-bottom" />
         </div>
         <template #dropdown>
           <el-dropdown-menu>
             <router-link to="/profile/index">
-              <el-dropdown-item>Profile</el-dropdown-item>
+              <el-dropdown-item>个人资料</el-dropdown-item>
             </router-link>
             <el-dropdown-item divided>
-              <span style="display:block;">Log Out</span>
+              <span style="display:block;">退出登录</span>
             </el-dropdown-item>
           </el-dropdown-menu>
         </template>
@@ -28,10 +34,11 @@ import { computed, defineComponent } from 'vue'
 import { useStore } from '@/store'
 import { ActionConstants, GetterConstants } from '@/store/modules/constants'
 import Hamburger from '@/components/Hamburger/index.vue'
+import Screenfull from '@/components/Screenfull/index.vue'
 
 export default defineComponent({
   name: 'Navbar',
-  components: { Hamburger },
+  components: { Hamburger, Screenfull },
   setup() {
     const store = useStore()
     const sidebar = computed(() => store.getters[GetterConstants.GetSidebar])
@@ -90,6 +97,8 @@ export default defineComponent({
       font-size: 18px;
       color: #5a5e66;
       vertical-align: text-bottom;
+      line-height: inherit;
+      margin-right: 10px;
 
       &.hover-effect {
         cursor: pointer;
@@ -106,20 +115,23 @@ export default defineComponent({
 
       .avatar-wrapper {
         margin-top: 5px;
-        position: relative;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
 
         .user-avatar {
-          cursor: pointer;
           width: 40px;
           height: 40px;
           border-radius: 10px;
         }
 
+        .user-name {
+          display: inline-block;
+          padding: 0 5px 0 10px;
+        }
+
         .el-icon-caret-bottom {
-          cursor: pointer;
-          position: absolute;
-          right: -20px;
-          top: 25px;
+          padding: 0 10px 0 5px;
           font-size: 12px;
         }
       }

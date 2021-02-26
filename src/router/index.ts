@@ -15,6 +15,11 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     ]
   },
   {
+    path: '/login',
+    component: () => import('@/views/login/index.vue'),
+    meta: { hidden: true },
+  },
+  {
     path: '/',
     component: Layout,
     redirect: '/dashboard',

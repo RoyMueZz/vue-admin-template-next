@@ -31,10 +31,11 @@ module.exports = {
       'math': 'always'
     }],
     'vue/singleline-html-element-content-newline': 'off',
-    'vue/multiline-html-element-content-newline': 'off',
+    'vue/multiline-html-element-content-newline': 'off', 
     'vue/name-property-casing': ['error', 'PascalCase'],
     'vue/no-template-shadow': 'off',
     'vue/no-v-html': 'off',
+    "@typescript-eslint/no-explicit-any": ["off"],
     'accessor-pairs': 2,
     'arrow-spacing': [2, {
       'before': true,
